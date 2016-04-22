@@ -7,36 +7,23 @@ import akka.actor.ActorRef;
 
 public class Message {
 	/* type of message needs to be sent */
-
 	public static class Join implements Serializable {
-		public ActorRef pred;
-		public ActorRef succ;
-
-		public Join(ActorRef pred, ActorRef succ) {
-			this.pred = pred;
-			this.succ = succ;
+		public Join() {
 		}
 	}
 
 	public static class Leave implements Serializable {
-		public ActorRef pred;
-		public ActorRef succ;
-
-		public Leave(ActorRef pred, ActorRef succ) {
-			this.pred = pred;
-			this.succ = succ;
+		public Leave() {
 		}
 	}
 
 	public static class LookUp implements Serializable {
 		public String valueString;
-		public ActorRef pred;
-		public ActorRef succ;
-
-		public LookUp(String valueString, ActorRef pred, ActorRef succ) {
+		public String phase;
+		
+		public LookUp(String valueString, String phase) {
 			this.valueString = valueString;
-			this.pred = pred;
-			this.succ = succ;
+			this.phase = phase;
 		}
 	}
 
